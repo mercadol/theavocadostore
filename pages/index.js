@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import Navbar from "./product/components/Navbar/Navbar";
 
 const Home = () => {
   return (
-    <div>hola mundo</div>
-  )
-}
+    <div>
+      <Navbar />
+      <p>hola mundo</p>
+    </div>
+  );
+};
 
-export default Home
+export default Home;

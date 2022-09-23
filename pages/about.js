@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import Navbar from "./product/components/Navbar/Navbar";
 
 const About = () => {
   return (
-    <div>Esta es la pagina de About</div>
-  )
-}
+    <div>
+      <Navbar />
+      <p>Esta es la pagina de About</p>
+    </div>
+  );
+};
 
-export default About
+export default About;
