@@ -3,8 +3,9 @@ import DataBase from "@database";
 
 const allAvos = async (request: NextApiRequest, response: NextApiResponse) => {
   const database = new DataBase();
-  const allEntries = await database.getAll();
-  response.status(200).json({ data: allEntries });
+  const id= request.query.id;
+  const entry = await database.getById(id as string);
+  response.status(200).json({ entry });
 };
 
 export default allAvos;
