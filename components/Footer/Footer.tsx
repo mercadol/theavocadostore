@@ -41,12 +41,21 @@ const Footer = () => (
               <a href="https://github.com/mercadol">@mercadol</a>
             </p>
             <List horizontal style={{ display: 'flex' }}>
-              <List.Item
+            <List.Item
                 icon="github"
                 style={{ display: 'flex' }}
                 content={
-                  <a href="https://github.com/mercadol">
+                  <a href="https://github.com/mercadol/theavocadostore">
                     GitHub
+                  </a>
+                }
+              />
+              <List.Item
+                icon="instagram"
+                style={{ display: 'flex' }}
+                content={
+                  <a href="https://www.instagram.com/ileonardo_m/">
+                    Instagram
                   </a>
                 }
               />
