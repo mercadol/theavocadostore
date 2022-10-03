@@ -1,10 +1,28 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import DataBase from "@database";
+import { IncomingMessage, ServerResponse } from 'http'
+import DB from '@database'
+import enablePublicAccess from 'cors'
 
-const allAvos = async (request: NextApiRequest, response: NextApiResponse) => {
-  const database = new DataBase();
-  const allEntries = await database.getAll();
-  response.status(200).json({ data: allEntries });
-};
+const allAvos = async (req: IncomingMessage, res: ServerResponse) => {
+  try {
 
-export default allAvos;
+    
+    await enablePublicAccess(req, res)
+
+    const db = new DB()
+    const allEntries = await db.getAll()
+    const lenght = allEntries.length
+
+    
+    res.statusCode = 200
+    res.setHeader('Content-Type', 'application/json')
+    res.end(JSON.stringify({ lenght, data: allEntries }))
+  } catch (e) {
+    console.error(e)
+    res.statusCode = 500
+    res.end(
+      JSON.stringify({ length: 0, data: [], error: 'Something went wrong' })
+    )
+  }
+}
+
+export default allAvos

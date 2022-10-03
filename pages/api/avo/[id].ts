@@ -1,11 +1,23 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import DataBase from "@database";
+import { NextApiRequest, NextApiResponse } from 'next'
+import DB from '@database'
+import enablePublicAccess from 'cors'
 
-const allAvos = async (request: NextApiRequest, response: NextApiResponse) => {
-  const database = new DataBase();
-  const id= request.query.id;
-  const entry = await database.getById(id as string);
-  response.status(200).json({ entry });
-};
+const AvoDetail = async (req: NextApiRequest, res: NextApiResponse) => {
+  try {
+    
+    
+    await enablePublicAccess(req, res)
 
-export default allAvos;
+    const db = new DB()
+    const avoId = req.query.id as string
+
+    const avo = await db.getById(avoId)
+
+    res.status(200).json(avo)
+  } catch (e) {
+    console.error(e)
+    res.status(404).end()
+  }
+}
+
+export default AvoDetail

@@ -1,6 +1,6 @@
 ### 🤖 Guía Rápida
 
-1.  **Empieza a desarrollar.**
+    **Empieza a desarrollar.**
 
     Instala dependencias
         npm i
