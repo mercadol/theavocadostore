@@ -6,7 +6,7 @@ const allAvos = async (req: IncomingMessage, res: ServerResponse) => {
   try {
 
     
-    await enablePublicAccess(req, res)
+    await enablePublicAccess()
 
     const db = new DB()
     const allEntries = await db.getAll()
